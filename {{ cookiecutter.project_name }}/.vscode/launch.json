@@ -13,13 +13,12 @@
             // Place desired non-sensitive environment variables here for testing
             // that you want checked into git.
             "env": {
+                "CONFIG_FILE": "configs/config.yaml"
             },
-
             // Uncomment the line below if you need to set sensitive environment
             // variables for testing.  Create an .env file in the root project location
             // with variables set in KEY=VALUE form, one per line.  This .env file
             // will not be checked into version control.
-
             // "envFile": "/workspaces/{{ cookiecutter.project_name }}/.env"
         }
     ]

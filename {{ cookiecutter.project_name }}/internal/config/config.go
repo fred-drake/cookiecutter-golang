@@ -1,8 +1,8 @@
 package config
 
 import (
-	"io/ioutil"
 	"log"
+	"os"
 	"sync"
 
 	"gopkg.in/yaml.v3"
@@ -12,8 +12,12 @@ var once sync.Once
 var data = make(map[interface{}]interface{})
 
 func Config() map[interface{}]interface{} {
-	once.Do(func ()  {
-		yfile, err := ioutil.ReadFile("config.yaml")
+	once.Do(func()  {
+		path := os.Getenv("CONFIG_FILE")
+		if path == "" {
+			path = "/etc/{{ cookiecutter.project_name }}/config.yaml"
+		}
+		yfile, err := os.ReadFile(path)
 	
 		if err != nil {
 			log.Fatal(err)
