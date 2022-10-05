@@ -22,7 +22,7 @@ func main() {
 
 	// Set hard-coded defaults if not overridden anywhere else
 	configDefaults := map[string]interface{}{
-		"configFile": "/etc/my-project/config.yaml",
+		"configFile": "/etc/{{ cookiecutter.project_name }}/config.yaml",
 		"logFormat": "text",
 		"logLevel": "info",
 	}
