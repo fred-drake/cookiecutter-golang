@@ -13,9 +13,10 @@ RUN curl -LO "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT
 FROM base as development
 COPY --from=development-build-stage /usr/local/bin/hadolint /usr/local/bin/hadolint
 WORKDIR /workspaces/{{ cookiecutter.project_name }}
-RUN go install golang.org/x/tools/gopls@latest && \
-    go install honnef.co/go/tools/cmd/staticcheck@latest && \
-    go install github.com/go-delve/delve/cmd/dlv@latest
+RUN go install golang.org/x/tools/gopls@latest \
+    && go install honnef.co/go/tools/cmd/staticcheck@latest \
+    && go install github.com/go-delve/delve/cmd/dlv@latest \
+    && go install github.com/segmentio/golines@latest
 
 FROM base AS build-stage
 LABEL app="build-{{ cookiecutter.project_name }}"

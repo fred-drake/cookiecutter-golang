@@ -8,6 +8,9 @@ This is the template I use to begin my Go projects.  It aims to have everything 
 ## Project Structure
 The template aims to follow the unofficial [golang standards project layout definition](https://github.com/golang-standards/project-layout).
 
+## Formatting
+The application will automatically format the code when a `go` file is saved.  It uses the [golines](https://github.com/segmentio/golines) library which runs the formatting of the standard `gofmt` but also breaks up long lines.  This gives a closer experience to those who are used to more fully-featured formatters such as Python's `black`.
+
 ## Containerized Development Environment
 This template is intended to utilize Visual Studio Code's [remote container technology](https://code.visualstudio.com/docs/remote/containers).  The first time you load the project into VS Code, it will detect the remote container settings are in place and ask you if you wish to re-open in a container.  It will take a few moments for the container to build, but 
 then you will have a full development ecosystem, complete with the exact versions of dependent software.  If you completely screw something up somewhere in your environment during development, hit `⌘⇧P`, select `Remote-Containers: Rebuild Container` and you can start again with a clean slate.
