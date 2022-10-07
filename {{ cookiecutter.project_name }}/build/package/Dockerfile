@@ -34,6 +34,7 @@ RUN go mod download && go mod verify
 COPY . .
 RUN mkdir /app && \
     go mod vendor && \
+    go test ./... && \
     go build -v -o /app ./...
 
 # Final Stage

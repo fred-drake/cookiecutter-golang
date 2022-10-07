@@ -95,7 +95,5 @@ It will create containers for both `amd64` and `arm64` architectures.
 - [Gookit Config](https://github.com/gookit/config) configuration framework
 
 ## To-Do's
-- [ ] A more complete reference implementation
-- [ ] Test suite to cover the reference implementation
 - [ ] Add more container architectures
 - [ ] Make CI configurable to not deploy container
