@@ -8,6 +8,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestValidateWithEmptyConfigSettings(t *testing.T) {
+	defer config.ClearAll()
+	os.Clearenv()
+	Configuration(NewSettings())
+	assert.True(t, Validate([]string{}))
+}
+
 func TestNoConfigVariables(t *testing.T) {
 	defer config.ClearAll()
 	os.Clearenv()

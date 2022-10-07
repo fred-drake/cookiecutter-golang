@@ -15,9 +15,23 @@ type ConfigurationSettings struct {
 	DefaultValues map[string]interface{}
 }
 
+func NewSettings() *ConfigurationSettings {
+	return &ConfigurationSettings{
+		ConfigKeys:    []string{},
+		DefaultValues: map[string]interface{}{},
+	}
+}
+
 var once sync.Once
 
 func Configuration(configValues *ConfigurationSettings) {
+	if configValues.ConfigKeys == nil {
+		configValues.ConfigKeys = NewSettings().ConfigKeys
+	}
+	if configValues.DefaultValues == nil {
+		configValues.DefaultValues = NewSettings().DefaultValues
+	}
+
 	// We need to get the "configFile" key in order to pull from
 	// the YAML file.  Pull the configs from other sources, then
 	// re-apply them so they will follow the correct overriding order.
